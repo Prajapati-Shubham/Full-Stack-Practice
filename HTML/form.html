@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tutorial</title>
+</head>
+
+<body>
+    <!-- Username:
+    <input type="text" placeholder="Enter Name"><br>
+    Password:
+    <input type="password" placeholder="Enter Passowrd"><br>
+     -->
+
+
+    <!-- <label>
+        Enter your Name:
+        <input type="text">
+    </label>
+    <br>
+    <br>
+    <label >
+        Enter your password:
+        <input type="text">
+    </label> -->
+    <form action="/server">
+        <div>
+            <label for="Username">Username:</label>
+            <input type="text" placeholder="Enter your Username" id="Username" name="user">
+        </div>
+        <div>
+            <label for="Password">Password:</label>
+            <input type="text" placeholder="Enter your password" id="Password" name="pass">
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" placeholder="Enter your age" id="age">
+        </div>
+        <hr>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        <div>
+            <button type="button">Do Something</button>
+        </div>
+        <div>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit The Bio</title>
+</head>
+<body>
+    <div class="main">
+        <h1> Name : 
+            <%= users.name %>
+        </h1>
+        <p> Edit Your Bio :
+            <%=users.bio %>
+        </p>
+        <form method="post" action="/user/<%= users._id %>?_method=PUT">
+            <textarea name="bio" id="" cols="30" rows="10"><%= users.bio %></textarea>
+            <button>Edit</button>
+        </form>
+    </div>
+</body>
+</html>

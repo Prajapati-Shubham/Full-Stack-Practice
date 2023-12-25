@@ -1,0 +1,197 @@
+
+/* alpha Property */
+
+/* ony manipulate the color  */
+
+/* div{
+    height: 200px;
+    width: 200px;
+    background-color:rgba(255,0,0,0.7);
+    background-color: #4dffaaff;
+    background-color: rgba(255,0,0);
+    transition-delay: 1s;
+    margin-top: 10px;
+    margin: 0 auto;
+    transition:2s ease 0.2s;
+
+
+} */
+
+/* opacity property */
+
+/* manipulate all the propertie of html  */
+
+/* #opacity{
+    background-color:#ffa511 ;
+    opacity: 0.5;
+} */
+
+/* transitions property */
+
+/* enables you to define the transitons btw teo peoperties */
+
+/* div:hover{
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 400px;
+    background-color: pink;
+
+} */
+
+/* Transform property */
+
+/* rotate,skew scale,translate */
+
+/* section{
+    margin-top: 100px;
+}
+div{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: #7aa874;
+    border:2px solid black;
+    margin: 10px auto;
+}
+div:nth-of-type(2n){
+    background-color:#f7db6a;
+}
+
+div:nth-of-type(3n){
+    background-color:#ebb02d
+}
+
+#one{
+    transform: rotate(45deg);
+}
+#two{
+    transform: scale(0.5,2);
+}
+#three{
+    transform: translate(-100px,-100px);
+}
+#four{
+    transform: skew(45deg);
+}
+#five{
+    transform: rotate(30deg) translate(150px);
+} */
+
+
+/* Box Shadow Property */
+
+/* div{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: #7aa874;
+    border:2px solid black;
+    margin: 10px auto;
+    box-shadow: 2px 2px 10px yellow;
+} */
+
+/* div{
+    width: 400px;
+    height: 200px;
+    background-color: #7aa834;
+    margin: 10px auto;
+    background-image: url(logo.png);
+    background-size:contain;
+    background-size: auto;
+    background-size:cover;
+} */
+
+/* Card Hover Effect */
+/* 
+.card{
+    width: 200px;
+    height:200px;
+    border: 2px solid black;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px black;
+    transition: 2s;
+}
+.desc{
+    padding: 0 2px 0 2px;
+}
+
+img{
+    width: 100px;
+    border-radius: 5px 5px 0 0 ;
+}
+
+.card:hover{
+    box-shadow:2px 2px  18px gold;
+} */
+
+/* Position property */
+
+div{
+    height: 100px;
+    width: 100px;
+    background-color:green;
+    text-align: center;
+    border: 3px solid black;
+    margin: 20px;
+    display: inline-block;
+}
+
+#static{
+    background-color: yellow;
+    position: static;
+    top: 100px;
+    left: 100px;
+}
+ #relative{
+    background-color: yellow;
+    position: relative;
+    top: 100px;
+    left: 100px;
+ }
+
+ #absolute{
+    background-color: yellow;
+    position: absolute;
+    top: 100px;
+    left:100px;
+}
+#fixed{
+    background-color: yellow;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+
+}
+.face{
+    width: 400px;
+    height: 400px;
+    background-color: #ffa511;
+    border-radius: 50%;
+}
+
+.mouth{
+    width: 200px;
+    height: 75px;
+    background-color: chocolate;
+    border-radius: 0 0 50px 50px;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    
+}
+
+.lefteye ,.righteye{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: black;
+    display :inline-block;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+.righteye{
+    left: 250px;
+}

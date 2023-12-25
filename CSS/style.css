@@ -1,0 +1,53 @@
+h2{
+    /* color: rgb(120,120,120); */
+    /* color: #0000ff; */
+    /* color: #00ff00; */
+    /* color: #000000; */
+    /* color: #ff0000; */
+    /* color:#ffffff;
+    background-color: black; */
+
+    /* text-align: center; */
+    /* border: solid; */
+    /* width: 50%; */
+    /* text-align: justify; */
+    /* font-weight: 900; */
+    /* font-weight: bold; */
+    /* font-weight:700; */
+    /* font-weight:400; */
+
+    /* text-decoration: underline; */
+    /* text-decoration: overline; */
+    /* text-decoration: white line-through; */
+    /* text-decoration: dashed line-through; */
+    /* text-decoration: wavy underline; */
+    /* text-decoration:dotted overline; */
+    /* text-decoration: double underline; */
+
+    /* line-height: 2.5; */
+    /* line-height :normal; */
+    /* line-height: 0.5; */
+
+    /* letter-spacing: normal; */
+    /* letter-spacing: normal; */
+
+    /* font-size: 20px; */
+
+    /* font-family: arial; */
+    /* font-family:sans-serif; */
+    /* font-family: fantasy; */
+    /* font-family: monospace; */
+
+    font-family: League spartan;
+    color:#ffa511;
+    text-align:center;
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: normal*1.5;
+    text-decoration:rgb(210,236,156) double underline;
+    text-transform: uppercase;
+
+
+}
+

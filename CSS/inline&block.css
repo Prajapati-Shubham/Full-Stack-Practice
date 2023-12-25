@@ -1,0 +1,12 @@
+span{
+    display: inline;
+    background-color: pink;
+    border: solid black 2px;
+    padding: 50px;
+
+}
+h2{
+    display: inline;
+    background-color: green;
+}
+  
