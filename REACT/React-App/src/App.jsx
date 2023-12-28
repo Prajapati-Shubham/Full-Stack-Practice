@@ -3,7 +3,7 @@ import './App.css';
 // import Title from './Title.jsx';
 // import ProductTab from './ProductTab.jsx';
 // import Button from "./Button.jsx";
-// import Form from "./Form.jsx";
+import Form from "./Form.jsx";
 // import MsgBox from  './MsbBox.jsx';
 // import Counter from './Counter.jsx'
 // import LikeButton from "./LikeButton.jsx";
@@ -32,14 +32,14 @@ function App() {
     <MsgBox userName="Khushil" textColor="green"/> */}
     {/* <ProductTab/> */}
     {/* <Button/> */}
-    {/* <Form/> */}
+    <Form/>
     {/* <h1>States in React</h1> */}
     {/* <Counter/> */}
     {/* <LikeButton/> */}
     {/*  <LudoBoard/> */}
     {/* <TodoList/> */}
     {/* <Lottery/> */}
-    <NewTicket n={3}  winCondition={winCondition}  />
+    {/* <NewTicket n={3}  winCondition={winCondition}  /> */}
     </>
     
   ) ;
