@@ -14,6 +14,7 @@ import TicketNum from './TicketNum.jsx';
 import Ticket from './Ticket.jsx';
 import NewTicket from './NewTicket.jsx';
 import {sum} from"./helper.js";
+import PracticeForm from './PracticeForm.jsx';
 
 function Description(){
   return <h3>I am the description</h3>}
@@ -32,7 +33,7 @@ function App() {
     <MsgBox userName="Khushil" textColor="green"/> */}
     {/* <ProductTab/> */}
     {/* <Button/> */}
-    <Form/>
+    {/* <Form/> */}
     {/* <h1>States in React</h1> */}
     {/* <Counter/> */}
     {/* <LikeButton/> */}
@@ -40,6 +41,7 @@ function App() {
     {/* <TodoList/> */}
     {/* <Lottery/> */}
     {/* <NewTicket n={3}  winCondition={winCondition}  /> */}
+    <PracticeForm/>
     </>
     
   ) ;
