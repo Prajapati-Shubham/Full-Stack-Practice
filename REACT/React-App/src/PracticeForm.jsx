@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {v4 as uuid4} from "uuid";
 
 export default function PracticeForm(){
     let [formData,setFormData]=useState([{
@@ -7,8 +8,9 @@ export default function PracticeForm(){
         address:"",
         username:"",
         password:"",
+        id:uuid4()
     }]);
-    let handelInputChange=(event)=>{
+    let handelSubmit=(event)=>{
         let fieldName = event.target.name;
         let newValue = event.target.value;
         // console.log(fieldName);
@@ -16,7 +18,7 @@ export default function PracticeForm(){
         setFormData((currData)=>{
             // currData[fieldName] = newValue;
             // return {...currData , [fieldName]:newValue};
-            return{...currData,[event.target.name]:event.target.value};
+            return[{...currData[0],[event.target.name]:event.target.value,id:uuid4()}];
         });
         // setFormData((prevFormData) => {
         //     const updatedFormData = [...prevFormData];
@@ -27,21 +29,22 @@ export default function PracticeForm(){
         //     return updatedFormData;
         //   });
     };
-    let handelSubmit=(event)=>{
+    let handelInputChange=(event)=>{
         event.preventDefault();
         console.log(formData);
-        setFormData({
+        setFormData([{
             fullName:"",
-            contact:"",
+            contact: "",
             address:"",
             username:"",
             password:"",
-        })
+            id: uuid4()
+    }])
        
     }
 
     return (
-        <>
+        <div>
         <h1>Practice Component for Form </h1>
         <form action="" onSubmit={handelSubmit}>
             <label htmlFor="fullname">Full Name:</label>
@@ -71,7 +74,7 @@ export default function PracticeForm(){
             <tbody>
             {
                 formData.map((data)=>(
-                    <tr > 
+                    <tr key={data.id} > 
                     <td>{data.fullName}</td>
                     <td>{data.contact}</td>
                     <td>{data.address}</td>
@@ -84,6 +87,6 @@ export default function PracticeForm(){
 
 
         </table>
-        </>
+        </div>
     )
 }

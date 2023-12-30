@@ -8,13 +8,16 @@ import Form from "./Form.jsx";
 // import Counter from './Counter.jsx'
 // import LikeButton from "./LikeButton.jsx";
 // import LudoBoard from './LudoBoard.jsx';
-// import TodoList from "./TodoList.jsx";
+import TodoList from "./TodoList.jsx";
 import Lottery from "./Lottery.jsx";
 import TicketNum from './TicketNum.jsx';
 import Ticket from './Ticket.jsx';
 import NewTicket from './NewTicket.jsx';
 import {sum} from"./helper.js";
 import PracticeForm from './PracticeForm.jsx';
+import CommentsForm from './CommentsForm.jsx';
+import Counter2 from './Counter2.jsx';
+import Joker from './Joker.jsx';
 
 function Description(){
   return <h3>I am the description</h3>}
@@ -41,7 +44,10 @@ function App() {
     {/* <TodoList/> */}
     {/* <Lottery/> */}
     {/* <NewTicket n={3}  winCondition={winCondition}  /> */}
-    <PracticeForm/>
+    {/* <PracticeForm/> */}
+    {/* <CommentsForm/> */}
+    {/* <Counter2/> */}
+    <Joker/>
     </>
     
   ) ;
