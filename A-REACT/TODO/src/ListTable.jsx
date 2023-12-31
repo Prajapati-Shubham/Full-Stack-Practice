@@ -1,5 +1,5 @@
 
-export default function ListTable(){
+export default function ListTable({itemList}){
     return(
         <table style={{border:"2px solid black"}}>
                 <thead>

@@ -70,7 +70,7 @@ export default function ListItems() {
                     Add
                 </Button>
             </form>
-            <ListTable />
+            <ListTable itemList={itemList}/>
         </div>
     );
 }
