@@ -44,10 +44,10 @@ function App() {
     {/* <TodoList/> */}
     {/* <Lottery/> */}
     {/* <NewTicket n={3}  winCondition={winCondition}  /> */}
-    {/* <PracticeForm/> */}
+    <PracticeForm/>
     {/* <CommentsForm/> */}
     {/* <Counter2/> */}
-    <Joker/>
+    {/* <Joker/> */}
     </>
     
   ) ;

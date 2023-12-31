@@ -8,6 +8,7 @@ export default function  TodoList(){
         // console.log("We have to log new task to TODO List");
         setTodos((preTodos)=>{
             return [...preTodos,{task:newTodo,id:uuid4(),isDone:false}];
+            
         });
         setNewTodo("");
     }
