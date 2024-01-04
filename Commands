@@ -3,6 +3,7 @@ npm create vite@latest
  cd <Directory-Name>
   npm install
   npm run dev
+touch <file-Name>
 
 material UI installation Command:
 npm install @mui/material @emotion/react @emotion/styled

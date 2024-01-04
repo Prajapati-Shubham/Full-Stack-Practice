@@ -4,6 +4,7 @@ const mongoose=require("mongoose");
 const path=require("path");
 const chat=require("./models/chat.js");
 const methodOverride=require("method-override");
+const ExpressError=require("./ExpressError.js");
 const port=8080;
 
 //path to access ejs files
@@ -18,7 +19,7 @@ main().then(() => console.log("Connection Establsihed"))
 .catch(err=>console.log(err));
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
+    await mongoose.connect("mongodb://127.0.0.1:27017/fakewhatsapp");
 }
 
 //home route
@@ -28,60 +29,131 @@ app.get("/",(req,res)=>{
 
 // Index Route 
 app.get("/chats",async(req,res)=>{
-     let chats= await (chat.find())
+    try{
+        let chats= await (chat.find())
     //  console.log(chats);
      res.render("index.ejs",{chats});
+    }
+    catch(err){
+        next(err);
+    }
+     
 });
 
 //new Route
 app.get("/chat/new",(req,res)=>{
+    // throw new ExpressError(404,"Page Not Found");
     res.render("new.ejs");
 });
 
 //create route
-app.post("/chats",(req,res)=>{
-    let {from,to,msg}=req.body;
-    let newChat= new chat({
+app.post("/chats",async(req,res,next)=>{
+    try{
+        let {from,to,msg}=req.body;
+        let newChat= new chat({
         from:from,
         to:to,
         msg:msg,
         created_at:new Date(),
     });
-    newChat
-    .save().
-    then(res=>{console.log("Chat was saved")})
-    .catch(err=>{"Console.log(err)"});
+    await newChat.save()
     res.redirect("/chats");
+    }catch(err){
+        next(err);
+    }
+    
 });
+
+
+//Wrap Function to handel the error in express
+function asyncWrap(fn){
+    return function(req,res,next){
+        fn(req,res,next).catch((err)=>next(err));
+    };
+}
+//We can Use this asyncWrap() function to all the try catch block
+
+//Show Route 
+app.get("/chats/:id", asyncWrap (async(req,res,next)=>{
+    
+        let {id}=req.params;
+        let chats = await chat.findById(id);
+        if(!chats){
+        next(new ExpressError(500,"Chat Not Found")) ;
+        //in async request the express will not call the next() 
+        //function bydefault so we have to call the error function as the parameter of
+        //the next functiona like the above function.
+        }
+        res.render("edit.ejs",{chats});
+    
+        }));
 
 //Edit route
 app.get("/chats/:id/edit",async(req,res)=>{
-    let {id}=req.params;
-    let chats= await chat.findById(id);
-    res.render("edit.ejs",{chats});
+    try{
+        let {id}=req.params;
+        let chats= await chat.findById(id);
+        res.render("edit.ejs",{chats});
+    }catch(err){
+        next(err);
+    }
+    
 });
 
 
 //Update Route
 app.put("/chats/:id",async(req,res)=>{
-    let {id}=req.params;
-    let {msg:newMsg} =req.body;
-    let updatedChat=await chat.findByIdAndUpdate(id,
+    try{
+        let {id}=req.params;
+        let {msg:newMsg} =req.body;
+        let updatedChat=await chat.findByIdAndUpdate(id,
         {msg:newMsg},
         {runValidators:true,new:true},
     );
     console.log(updatedChat);
     res.redirect("/chats");
+    }
+    catch(err){
+        next(err);
+    }
+    
 });
 
 //destroy route
 
 app.delete("/chats/:id", async (req,res)=>{
-    let {id}=req.params;
-    let deletedChat= await chat.findByIdAndDelete(id);
-    console.log(deletedChat);
-    res.redirect("/chats");
+    try{
+        let {id}=req.params;
+        let deletedChat= await chat.findByIdAndDelete(id);
+        console.log(deletedChat);
+        res.redirect("/chats");
+    }catch(err){
+        next(err);
+    }
+    
 });
+
+//handel Validation Error
+const handelValidationError=(err)=>{
+    console.log("This is a validation error");
+    console.dir(err.message);
+    return err;
+}
+
+//error middlware
+app.use((err,req,res,next)=>{
+    console.log(err.name);
+    if(err.name==="ValidationError"){
+       err= handelValidationError(err);
+    }
+    next(err);
+})
+
+//Error Middleware
+app.use((err,req,res,next)=>{
+    let {status=500,message="Some error occured"}=err;
+    res.status(status).send(message);
+})
 
 //server running on port
 app.listen(port,()=>{
